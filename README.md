@@ -1,6 +1,6 @@
 ### Pré requisitos
 
-- NodeJs
+- NodeJs 16+
 
 ### Instruções
 
