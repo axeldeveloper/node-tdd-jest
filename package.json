@@ -4,12 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node serve.js",
+    "dev": "nodemon serve.js",
+    "generate": "drizzle-kit generate --schema=./db/schema.js --out=./migrations --dialect=sqlite",
+    "migrate1": "drizzle-kit migrate --schema=./db/schema.js --driver=better-sqlite3 --out=./migrations",
+    "migrate": "drizzle-kit migrate:sqlite",
+    "exes": "sqlite3 sqlite.db",
+    "generate:dev": "drizzle-kit push --env dev",
+    "generate:prod": "drizzle-kit push --env prod",
+    "generate:reset": "drizzle-kit reset",
+    "json-server": "json-server --watch db-tmp.json --port 3001",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:coverage:html": "jest --coverage --coverageReporters=html",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "drizzle-kit": "^0.31.2",
+    "jest": "^29.7.0",
+    "json-server": "^1.0.0-beta.3",
+    "supertest": "^7.1.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.1.0",
+    "drizzle-orm": "^0.44.2",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
